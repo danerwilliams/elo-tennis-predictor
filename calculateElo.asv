@@ -1,0 +1,12 @@
+function [newPlayerOneElo,newPlayerTwoElo]=calculateElo(oldPlayerOneElo,K,playerOneOutcome,oldPlayerTwoElo)
+% CALCULATE ELO
+% oldElo = Players ELO ranking before the match occurs
+% K = K factor (Max amount of points gained or lost)
+% Outcome = 1 or 0, corresponding to Win or Loss
+% opponentElo = the opposing players Elo before the game
+    pWin = 1/(1 + 10^((oldPlayerOneElo - oldPlayerTwoElo)/400));
+    playerOneElo = oldPlayerOneElo + K*(playerOneOutcome - pWin);
+    if (playerOneOutcome)
+        playerTwoOutcome
+end
+    
