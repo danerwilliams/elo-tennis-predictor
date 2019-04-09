@@ -46,7 +46,7 @@ for i=1:length(mydata) %outer loop iterates through each excel file's cell array
         
         %add names to non-unique names list
         %winners{n+count} = mydata{i}{n+1, 8};
-        losers{n+count} = mydata{i}{n+1, 9};
+        losers{n+count} = mydata{i}{n+1, 5};
         
     end
     
