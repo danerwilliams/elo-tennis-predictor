@@ -7,19 +7,22 @@ clc
 
 %% Create User IDs
 
+
+%{
 %implementation of ImportData function to generate a struct of data from
 %all files entered as arguments
 
-%{
 years = {'2001.xlsx', '2002.xlsx','2003.xlsx','2004.xlsx', ...
     '2005.xlsx','2006.xlsx','2007.xlsx','2008.xlsx', ...
     '2009.xlsx','2010.xlsx','2011.xlsx','2012.xlsx', ...
     '2013.xlsx','2014.xlsx','2015.xlsx','2016.xlsx', ...
     '2017.xlsx','2018.xlsx','2019.xlsx'};
 
-data = ImportData(years);
+[data, unique] = ImportData(years);
 %}
 
+% another test case
+%[data, unique] = ImportData({'2017.xlsx', '2018.xlsx', '2019.xlsx'});
 
 a = 1:1:197;
 x = a.';

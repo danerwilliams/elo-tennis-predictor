@@ -1,6 +1,6 @@
 %% ImportData.m
 
-function combinedData = ImportData(paths)%parameter paths should be a cell array
+function [combinedData, uniqueNames] = ImportData(paths)%parameter paths should be a cell array
 
 l = length(paths);
 mydata = cell(1, l);
@@ -8,8 +8,6 @@ mydata = cell(1, l);
 for i=1:l
     mydata{i} = importf(paths{i});
 end
-
-disp(mydata{1}{1,1});
 
 newdata(1).Tournament = '';
 newdata(1).Date = 0;
@@ -22,6 +20,7 @@ newdata(1).Winner = '';
 newdata(1).Loser = '';
 
 count = 0;
+names{1} = '';
 
 for i=1:length(mydata)
     
@@ -35,11 +34,15 @@ for i=1:length(mydata)
         newdata(n+count).BestOf = mydata{i}{n+1,7};
         newdata(n+count).Winner = mydata{i}{n+1,8};
         newdata(n+count).Loser = mydata{i}{n+1,9};
+        names{n+count} = mydata{i}{n+1, 8};
     end
     
-    count = count + length(mydata{i}); 
+    count = count + length(mydata{i})-1; 
     disp(num2str(count));
     
 end
 
+uniqueNamesHolder = cellstr(names)
+
 combinedData = newdata;
+uniqueNames = unique(uniqueNamesHolder);
