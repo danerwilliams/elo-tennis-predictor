@@ -12,9 +12,7 @@ clc
 %implementation of ImportData function to generate a struct of data from
 %all files entered as arguments
 
-years = {'2010.xlsx','2011.xlsx','2012.xlsx', ...
-    '2013.xlsx','2014.xlsx','2015.xlsx','2016.xlsx', ...
-    '2017.xlsx','2018.xlsx','2019.xlsx'};
+years = {'2014.xlsx','2015.xlsx','2016.xlsx','2017.xlsx', '2018.xlsx', '2016.xlsx','2019.xlsx'};
 
 [data, unique] = ImportData(years);
 
@@ -43,8 +41,8 @@ for i = 1:length(data)
     winnerID = name2IDmap(winner);
     loser = char(data(i).Loser);
     loserID = name2IDmap(loser);
-    [playerELOs(winnerID),playerELOs(loserID)] =(calculateElo(playerELOs(winnerID),32,1,playerELOs(loserID)));
+    [playerELOs(winnerID),playerELOs(loserID)] =(calculateElo(playerELOs(winnerID),3,1,playerELOs(loserID)));
     
 end
 
-
+playerELOs = round(playerELOs);
