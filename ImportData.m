@@ -59,7 +59,7 @@ end
 
 %converts non-unique names cell array of strings to non-unique names cell
 %array of character vectors so that it can be used with unique() function
-uniqueNamesHolder = cellstr(losers)
+uniqueNamesHolder = cellstr(losers);
 
 combinedData = newdata; %return structure of all data from excel files put into one
 uniqueNames = unique(uniqueNamesHolder); %returns cell array of char vectors containing unique names
