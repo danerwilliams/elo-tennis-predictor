@@ -3,6 +3,8 @@
 % including columns 3 through 11 from excel (other columns shouldn't be
 % needed)
 
+%don't know how but this works
+
 function data = importf(file) %parameter is path name as a string
 
 [~, ~, data] = xlsread(file);

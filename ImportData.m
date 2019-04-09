@@ -47,7 +47,8 @@ for i=1:length(mydata) %outer loop iterates through each excel file's cell array
         newdata(n+count).Loser = mydata{i}{n+1,9};
         
         %add names to non-unique names list
-        names{n+count} = mydata{i}{n+1, 8};
+        %winners{n+count} = mydata{i}{n+1, 8};
+        losers{n+count} = mydata{i}{n+1, 9};
         
     end
     
@@ -60,7 +61,7 @@ end
 
 %converts non-unique names cell array of strings to non-unique names cell
 %array of character vectors so that it can be used with unique() function
-uniqueNamesHolder = cellstr(names)
+uniqueNamesHolder = cellstr(losers)
 
 combinedData = newdata; %return structure of all data from excel files put into one
 uniqueNames = unique(uniqueNamesHolder); %returns cell array of char vectors containing unique names
