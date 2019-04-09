@@ -8,8 +8,7 @@ clc
 %% Create User IDs
 
 %implementation of ImportData function to generate a struct of data from
-%all files entered as arguments
-
+%all files entered
 %{
 years = {'2001.xlsx', '2002.xlsx','2003.xlsx','2004.xlsx', ...
     '2005.xlsx','2006.xlsx','2007.xlsx','2008.xlsx', ...

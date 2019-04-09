@@ -5,8 +5,44 @@
 % function which imports elo tennis data from excel file(s) and returns an
 % array with win loss data for matches to be used for manipulation
 
-function wldata = ImportData(paths)
+function combinedData = ImportData(paths)%parameter paths should be a cell array
 
-uiimport(paths(1));
+l = length(paths);
+mydata = cell(1, l);
+
+for i=1:l
+    mydata{i} = importf(paths{i});
+end
+
+disp(mydata{1}{1,1});
+
+newdata(1).Tournament = '';
+newdata(1).Date = '';
+newdata(1).Series = '';
+newdata(1).Court = '';
+newdata(1).Surface = '';
+newdata(1).Round = '';
+newdata(1).BestOf = '';
+newdata(1).Winner = '';
+newdata(1).Loser = '';
+
+count = 0;
+
+for i=i:length(mydata)
+    
+    for n=2:length(mydata{i})
+        newdata(n+count).Tournament = mydata{i}{n,1};
+        newdata(n+count).Date = mydata{i}{n,2};
+        newdata(n+count).Series = mydata{i}{n,3};
+        newdata(n+count).Court = mydata{i}{n,4};
+        newdata(n+count).Surface = mydata{i}{n,5};
+        newdata(n+count).Round = mydata{i}{n,6};
+        newdata(n+count).BestOf = mydata{i}{n,7};
+        newdata(n+count).Winner = mydata{i}{n,8};
+        newdata(n+count).Tournament = mydata{i}{n,1};
+    end
+    count = count + length(mydata{i}); 
+    
+end
 
 
