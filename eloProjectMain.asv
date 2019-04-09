@@ -2,25 +2,49 @@
 %
 %   Main function.
 %
+clear
+clc
+
 %% Create User IDs
-a = 1:1:197;
+
+
+
+%implementation of ImportData function to generate a struct of data from
+%all files entered as arguments
+
+years = {'2010.xlsx','2011.xlsx','2012.xlsx', ...
+    '2013.xlsx','2014.xlsx','2015.xlsx','2016.xlsx', ...
+    '2017.xlsx','2018.xlsx','2019.xlsx'};
+
+[data, unique] = ImportData(years);
+
+
+% another test case
+%[data, unique] = ImportData({'2017.xlsx', '2018.xlsx', '2019.xlsx'});
+
+a = 1:1:length(unique);
 x = a.';
-b = table2cell(playerNames(:,2));
-names = string(b.');
+names = unique.';
 name2IDmap = containers.Map('KeyType','char','ValueType','double');
-for i = 1:197
-    name2IDmap(char(names(1,i))) = i;
+for i = 1:length(unique)
+    name2IDmap(char(names(i,1))) = i;
 end
-ID2namemap = containers.Map(x,b);
+ID2namemap = containers.Map(x,unique);
+
 
 %% Initialize every players ELO to 1500
+playerELOs = zeros(length(unique),1);
+playerELOs(:,1) = 1500;
 
 
 %% update ELOs from match data
-for i = 1:800
+for i = 1:length(matchdata)
     winner = char(string(matchdata{i,10}));
     winnerID = name2IDmap(winner);
     loser = char(string(matchdata{i,11}));
     loserID = name2IDmap(loser);
+    [playerELOs(winnerID),playerELOs(loserID)] =(calculateElo(playerELOs(winnerID),32,1,playerELOs(loserID)));
+    
 end
+
 
