@@ -5,8 +5,8 @@
 % function which imports elo tennis data from excel file(s) and returns an
 % array with win loss data for matches to be used for manipulation
 
-function wldata = ImportData(paths) %parameter paths should be a cell array
+function wldata = ImportData(paths)
 
-uiimport(paths{1});
+uiimport(paths(1));
 
 

@@ -3,6 +3,7 @@
 %   Main function.
 %
 %% Create User IDs
+
 a = 1:1:197;
 x = a.';
 b = table2cell(playerNames(:,2));
@@ -12,6 +13,7 @@ for i = 1:197
     name2IDmap(char(names(1,i))) = i;
 end
 ID2namemap = containers.Map(x,b);
+
 
 %% Initialize every players ELO to 1500
 playerELOs = zeros(197,1);
