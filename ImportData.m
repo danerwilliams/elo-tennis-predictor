@@ -15,13 +15,12 @@ end
 % initialize struct
 newdata(1).Tournament = '';
 newdata(1).Date = 0;
-newdata(1).Series = '';
-newdata(1).Court = '';
-newdata(1).Surface = '';
-newdata(1).Round = 0;
-newdata(1).BestOf = '';
+newdata(1).Round = '';
 newdata(1).Winner = '';
 newdata(1).Loser = '';
+newdata(1).Wsets = 0;
+newdata(1).Lsets = 0;
+newdata(1).Comment = '';
 
 % initializes a counter to be used in for loop for keeping track of the index last element in
 % struct after adding an entire excel file's worth of data to struct
@@ -38,13 +37,12 @@ for i=1:length(mydata) %outer loop iterates through each excel file's cell array
         %add elements from cell array to struct sequentially
         newdata(n+count).Tournament = mydata{i}{n+1,1};
         newdata(n+count).Date = mydata{i}{n+1,2};
-        newdata(n+count).Series = mydata{i}{n+1,3};
-        newdata(n+count).Court = mydata{i}{n+1,4};
-        newdata(n+count).Surface = mydata{i}{n+1,5};
-        newdata(n+count).Round = mydata{i}{n+1,6};
-        newdata(n+count).BestOf = mydata{i}{n+1,7};
-        newdata(n+count).Winner = mydata{i}{n+1,8};
-        newdata(n+count).Loser = mydata{i}{n+1,9};
+        newdata(n+count).Round = mydata{i}{n+1,3};
+        newdata(n+count).Winner = mydata{i}{n+1,4};
+        newdata(n+count).Loser = mydata{i}{n+1,5};
+        newdata(n+count).Wsets = mydata{i}{n+1,6};
+        newdata(n+count).Lsets = mydata{i}{n+1,7};
+        newdata(n+count).Comment = mydata{i}{n+1,8};
         
         %add names to non-unique names list
         %winners{n+count} = mydata{i}{n+1, 8};
@@ -61,7 +59,7 @@ end
 
 %converts non-unique names cell array of strings to non-unique names cell
 %array of character vectors so that it can be used with unique() function
-uniqueNamesHolder = cellstr(losers)
+uniqueNamesHolder = cellstr(losers);
 
 combinedData = newdata; %return structure of all data from excel files put into one
 uniqueNames = unique(uniqueNamesHolder); %returns cell array of char vectors containing unique names
