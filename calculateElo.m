@@ -1,4 +1,4 @@
-function [newPlayerOneElo,newPlayerTwoElo]=calculateElo(playerOneID,playerTwoID)
+function [newPlayerOneElo,newPlayerTwoElo]=calculateElo(playerOneID,playerTwoID, k)
 % CALCULATE ELO
 % oldElo = Players ELO ranking before the match occurs
 % K = K factor (Max amount of points gained or lost)
@@ -17,8 +17,8 @@ function [newPlayerOneElo,newPlayerTwoElo]=calculateElo(playerOneID,playerTwoID)
     playerOneMatches = playerMatches(playerOneID);      %gets how many matches in a players data set
     playerTwoMatches = playerMatches(playerTwoID);
     
-    kPlayerOne = ((25)/(playerOneMatches + 5)^.4);      %calculates K based on matches in set
-    kPlayerTwo = ((25)/(playerTwoMatches + 5)^.4);
+    kPlayerOne = ((k)/(playerOneMatches + 5)^.4);      %calculates K based on matches in set
+    kPlayerTwo = ((k)/(playerTwoMatches + 5)^.4);
     
     playerOneOutcome = 1;       %Winner is 1, loser is 0
     playerTwoOutcome = 0;

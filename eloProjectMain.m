@@ -14,6 +14,7 @@ clc
 
 years = {'2010.xlsx','2011.xlsx','2012.xlsx','2013.xlsx','2014.xlsx','2015.xlsx','2016.xlsx','2017.xlsx', '2018.xlsx', '2016.xlsx','2019.xlsx'};
 
+
 [data, unique] = ImportData(years);
 
 
@@ -57,7 +58,7 @@ for i = 1:length(data)                  %Loops through all matches, and updates 
     winnerID = name2IDmap(winner);
     loser = char(data(i).Loser);
     loserID = name2IDmap(loser);
-    [playerELOs(winnerID),playerELOs(loserID)] =(calculateElo(winnerID,loserID));
+    [playerELOs(winnerID),playerELOs(loserID)] =(calculateElo(winnerID,loserID, 25));
     
 end
 
