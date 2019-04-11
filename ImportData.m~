@@ -63,10 +63,10 @@ end
 %array of character vectors so that it can be used with unique() function
 names = [losers, winners];
 colHeadings = {'Name', 'Count', 'Percent'};
-t = tabulate(cellstr(names));
+t = tabulate(cellstr(names))
 tabnames = cell2struct(t, colHeadings, 2);
 unames = {};
-
+disp(length(tabnames));
 
 for i=1:length(tabnames)
     
@@ -75,6 +75,8 @@ for i=1:length(tabnames)
     end
     
 end
+
+disp(size(newdata))
 
 filtereddata(1).Tournament = '';
 filtereddata(1).Date = 0;
@@ -85,31 +87,25 @@ filtereddata(1).Wsets = 0;
 filtereddata(1).Lsets = 0;
 filtereddata(1).Comment = '';
 
-disp(length(newdata));
-
-countfilter = 1
 for i=1:length(newdata)
     
     winbool = false;
     for j=1:length(unames)
-        if strcmp(unames{j}, newdata(i).Winner) 
-            winbool = true;
+        if strcmp()    
         end
     end
     
     losebool = false;
     for j=1:length(unames)
-        if strcmp(unames{j}, newdata(i).Loser)
-            losebool = true;
+        if strcmp()
         end
     end
     
-    if (losebool && winbool) == true
-        filtereddata(countfilter) = newdata(i);
-        countfilter = countfilter + 1;
-    end
+    if losebool && winbool
+        filtereddata(length(filtereddata)+1) = 
     
 end
 
+
 combinedData = filtereddata; %return structure of all data from excel files put into one
-uniqueNames = unames; %returns cell array of char vectors containing unique names
+uniqueNames = unames %returns cell array of char vectors containing unique names
