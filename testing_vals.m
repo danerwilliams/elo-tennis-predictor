@@ -1,4 +1,4 @@
-function [percent_correct]=testing_vals(data, name2IDmap, playerELOs_kmap, k)
+function [percent_correct]=testing_vals(data, name2IDmap, playerELOs_kmap, k, playerELOs_Ktest, playerMatches_Ktest)
 
 number_correct = 0;
 total_number = 0;
@@ -15,7 +15,7 @@ for i = (800+2367):length(data)     %Loops through all matches, and counts for e
     end
     total_number = total_number+1;
     
-    [playerELOs_Ktest(winnerID_actual),playerELOs_Ktest(loserID_actual)] = (calculateElo(winnerID_actual,loserID_actual, k));
+    [playerELOs_Ktest(winnerID_actual),playerELOs_Ktest(loserID_actual)] = (calculateElo(winnerID_actual,loserID_actual, k, playerELOs_Ktest, playerMatches_Ktest));
     
 end
 

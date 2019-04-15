@@ -10,12 +10,10 @@ years = {'2010.xlsx','2011.xlsx','2012.xlsx','2013.xlsx','2014.xlsx','2015.xlsx'
 [data, unique] = ImportData(years);
 [ID2namemap, name2IDmap] = CreateIDs(unique);
 
-global playerMatches;
-global playerELOs;
-InitializeElos(data, unique, name2IDmap);
+[playerELOs, playerMatches] = InitializeElos(data, unique, name2IDmap);
 
-k = 30;
+k = 60;
 
-SetElos(data, name2IDmap, k);
+SetElos(data, name2IDmap, k, playerELOs, playerMatches);
 
 optimizeK(data, unique, name2IDmap);

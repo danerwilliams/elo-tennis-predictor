@@ -1,10 +1,7 @@
 %% InitializeID.m
 % initializes elos and finds number of matches played by each player
 
-function InitializeElos(data, unique, name2IDmap)
-
-global playerELOs;          %Allows access to playerELOs and playerMatches
-global playerMatches;
+function [playerELOs, playerMatches] = InitializeElos(data, unique, name2IDmap)
 
 playerELOs = zeros(length(unique),1); %Initializes a vector for all ELOs 
 playerELOs(:,1) = 1500;                 %Initializes all ELOs to 1500
