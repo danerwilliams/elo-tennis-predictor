@@ -41,7 +41,7 @@ for h = 100:5:200
     
     playerELOs_Ktest = round(playerELOs_Ktest);         %Rounds playerELOs for readability
     global playerELOs_kMap;
-    playerELOs_kMap = containers.Map(names, playerELOs_Ktest);
+    playerELOs_kMap = containers.Map(unique, playerELOs_Ktest);
     
     disp([num2str(h), '= ', num2str(testing_vals(data, name2IDmap, playerELOs_kMap, h))])
 end
