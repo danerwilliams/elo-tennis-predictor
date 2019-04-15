@@ -19,8 +19,8 @@ global playerMatches;
 global playerELOs;
 InitializeElos(data, unique, name2IDmap);
 
-k = 25;
-SetElos(data, name2IDmap, k);
+k = 
+SetElos(data, name2IDmap);
 
 optimizeK(data, unique, name2IDmap);
 

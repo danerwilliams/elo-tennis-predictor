@@ -2,8 +2,8 @@
 %
 %   Main function.
 %
-clc
 
+function optimizeK(data, unique, name2IDmap)
 %% Initialize every players ELO to 1500
 
 
@@ -32,7 +32,7 @@ end
 for h = 100:5:200
     for i = 1:length(data)-800-2367               %Loops through all matches, and updates player's
         winner_Ktest = char(data(i).Winner);      % ELOs for each match
-        winnerID_Ktest = name2IDmap(winner);
+        winnerID_Ktest = name2IDmap(winner_Ktest);
         loser_Ktest = char(data(i).Loser);
         loserID_Ktest = name2IDmap(loser_Ktest);
         [playerELOs_Ktest(winnerID_Ktest),playerELOs_Ktest(loserID_Ktest)] = (calculateElo(winnerID_Ktest,loserID_Ktest, h));
@@ -45,6 +45,5 @@ for h = 100:5:200
     
     disp([num2str(h), '= ', num2str(testing_vals(data, name2IDmap, playerELOs_kMap, h))])
 end
-
 
 

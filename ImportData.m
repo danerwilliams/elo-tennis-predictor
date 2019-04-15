@@ -22,6 +22,8 @@ newdata(1).Wsets = 0;
 newdata(1).Lsets = 0;
 newdata(1).Comment = '';
 
+%% concatinate data
+
 % initializes a counter to be used in for loop for keeping track of the index last element in
 % struct after adding an entire excel file's worth of data to struct
 count = 0;
@@ -67,6 +69,7 @@ t = tabulate(cellstr(names));
 tabnames = cell2struct(t, colHeadings, 2);
 unames = {};
 
+%% Filter data
 
 for i=1:length(tabnames)
     

@@ -4,9 +4,10 @@ function [newPlayerOneElo,newPlayerTwoElo]=calculateElo(playerOneID,playerTwoID,
 % K = K factor (Max amount of points gained or lost)
 % Outcome = 1 or 0, corresponding to Win or Loss
 % opponentElo = the opposing players Elo before the game
+    
     global playerELOs;          %Allows access to playerELOs and playerMatches
     global playerMatches;
-
+    
     playerOneElo = playerELOs(playerOneID,1);       %Gets the old ELOs of the players
     playerTwoElo = playerELOs(playerTwoID,1);
     
