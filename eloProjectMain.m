@@ -16,6 +16,6 @@ optimizeK(data, unique, name2IDmap);
 
 k = 60;
 
-SetElos(data, name2IDmap, k, playerELOs, playerMatches);
+playerELOs = SetElos(data, name2IDmap, k, playerELOs, playerMatches);
 
 
