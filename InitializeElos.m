@@ -3,6 +3,9 @@
 
 function [playerELOs, playerMatches] = InitializeElos(data, unique, name2IDmap)
 
+global loading;
+loading = 'initializing elo values...';
+
 playerELOs = zeros(length(unique),1); %Initializes a vector for all ELOs 
 playerELOs(:,1) = 1500;                 %Initializes all ELOs to 1500
 playerMatches = zeros(length(unique),1); %Initializes vector of matches played for each player

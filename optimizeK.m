@@ -6,6 +6,8 @@
 function optimizeK(data, unique, name2IDmap)
 %% Initialize every players ELO to 1500
 
+global loading;
+loading = 'optimizing k value...';
 
 playerELOs_Ktest = zeros(length(unique),1); %Initializes a vector for all ELOs 
 playerELOs_Ktest(:,1) = 1500;                 %Initializes all ELOs to 1500
