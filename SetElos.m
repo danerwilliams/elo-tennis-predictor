@@ -2,9 +2,6 @@
 
 function newPlayerELOs = SetElos(data, name2IDmap, k, playerELOs, playerMatches)
 
-global loading;
-loading = 'calculating elo values...';
-
 for i = 1:length(data)                  %Loops through all matches, and updates player's
     winner = char(data(i).Winner);      % ELOs for each match
     winnerID = name2IDmap(winner);

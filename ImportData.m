@@ -4,10 +4,6 @@
 %all excel files to be imported
 function [combinedData, uniqueNames] = ImportData(paths)
 
-global loading;
-
-loading = 'loading excel files...';
-
 l = length(paths); %number of excel files
 mydata = cell(1, l); %declares a 1xl cell array
 
@@ -35,8 +31,6 @@ count = 0;
 %initialize cell array names which will include all names including
 %repeats, later to be converted to a cell array of unique names
 names{1} = '';
-
-loading = 'combining data...';
 
 for i=1:length(mydata) %outer loop iterates through each excel file's cell array
     
@@ -75,8 +69,6 @@ tabnames = cell2struct(t, colHeadings, 2);
 unames = {};
 
 %% Filter data
-
-loading = 'filtering data...';
 
 for i=1:length(tabnames)
     
