@@ -21,6 +21,13 @@ function [newPlayerOneElo,newPlayerTwoElo] = calculateElo(playerOneID,playerTwoI
     playerOneOutcome = 1;       %Winner is 1, loser is 0
     playerTwoOutcome = 0;
     
+    roundMultiplier = 0;
+    
+    switch(round)
+        case '1st Round'
+            roundMultiplier = .7
+            
+    
     %Calculates ELOs based on ELO formula
     newPlayerOneElo = round(playerOneElo + kPlayerOne*(playerOneOutcome - pWinPlayerOne),2);
     

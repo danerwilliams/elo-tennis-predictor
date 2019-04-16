@@ -3,10 +3,10 @@
 %   Main function.
 %
 
-function eloProjectMain(app, years)
+% function eloProjectMain(app, years)
 global loading; 
 loading = 'Enter Selected Data Files (ex: 2017.xlsx, 2018.xlsx, 2019.xlsx)';
-
+years = {'2013.xlsx','2014.xlsx','2015.xlsx','2016.xlsx','2017.xlsx','2018.xlsx','2019.xlsx'};
 [data, unique] = ImportData(years);
 [ID2namemap, name2IDmap] = CreateIDs(unique);
 
