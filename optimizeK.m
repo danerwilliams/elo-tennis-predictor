@@ -26,7 +26,7 @@ end
 
 %% update ELOs from match data
 
-for h = 100:5:200
+for h = 10:5:30
     for i = 1:length(data)-800-2367               %Loops through all matches, and updates player's
         winner_Ktest = char(data(i).Winner);      % ELOs for each match
         winnerID_Ktest = name2IDmap(winner_Ktest);
