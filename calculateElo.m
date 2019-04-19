@@ -1,4 +1,4 @@
-function [newPlayerOneElo,newPlayerTwoElo] = calculateElo(playerOneID,playerTwoID, k, playerELOs, playerMatches)
+function [newPlayerOneElo,newPlayerTwoElo] = calculateElo(playerOneID,playerTwoID, k, playerELOs, playerMatches, matchRound)
 % CALCULATE ELO
 % oldElo = Players ELO ranking before the match occurs
 % K = K factor (Max amount of points gained or lost)
@@ -15,18 +15,35 @@ function [newPlayerOneElo,newPlayerTwoElo] = calculateElo(playerOneID,playerTwoI
     playerOneMatches = playerMatches(playerOneID);      %gets how many matches in a players data set
     playerTwoMatches = playerMatches(playerTwoID);
     
-    kPlayerOne = ((k)/(playerOneMatches + 5)^.4);      %calculates K based on matches in set
-    kPlayerTwo = ((k)/(playerTwoMatches + 5)^.4);
+    kMultiplier = 0;
+    
+    switch matchRound
+        case '1st Round'
+            kMultiplier = .7;
+        case '2nd Round'
+            kMultiplier = .75;
+        case '3rd Round'
+            kMultiplier = .8;
+        case '4th Round'
+            kMultiplier = .85;
+        case 'Quarterfinals'
+            kMultiplier = .9;
+        case 'Semifinals'
+            kMultiplier = .95;
+        case 'The Final'
+            kMultiplier = 1;
+        otherwise
+            kMultiplier = .8;
+    end
+            
+    
+    kPlayerOne = (kMultiplier*(k)/(playerOneMatches + 5)^.4);      %calculates K based on matches in set
+    kPlayerTwo = (kMultiplier*(k)/(playerTwoMatches + 5)^.4);
     
     playerOneOutcome = 1;       %Winner is 1, loser is 0
     playerTwoOutcome = 0;
     
-    roundMultiplier = 0;
-    
-    switch(round)
-        case '1st Round'
-            roundMultiplier = .7
-            
+  
     
     %Calculates ELOs based on ELO formula
     newPlayerOneElo = round(playerOneElo + kPlayerOne*(playerOneOutcome - pWinPlayerOne),2);
