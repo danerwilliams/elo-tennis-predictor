@@ -16,9 +16,7 @@ years = {'2010.xlsx', '2011.xlsx', '2012.xlsx', '2013.xlsx', '2014.xlsx', '2015.
 
 [playerELOs, playerMatches] = InitializeElos(data, unique, name2IDmap);
 
-optimizeK(data, unique, name2IDmap);
-
-k = 60;
+k = optimizeK(data, unique, name2IDmap);
 
 playerELOs = SetElos(data, name2IDmap, k, playerELOs, playerMatches);
 
