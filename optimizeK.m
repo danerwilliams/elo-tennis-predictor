@@ -5,10 +5,11 @@
 
 function KValue=optimizeK(data, unique, name2IDmap)
 %% Initialize every players ELO to 1500
+format longG
 
 
 playerELOs_Ktest = zeros(length(unique),1); %Initializes a vector for all ELOs 
-playerELOs_Ktest(:,1) = 500;                 %Initializes all ELOs to 1500
+playerELOs_Ktest(:,1) = 1500;                 %Initializes all ELOs to 1500
 playerMatches_Ktest = zeros(length(unique),1); %Initializes vector of matches played for each player
 
 
@@ -34,7 +35,7 @@ optimizing = false;
 optimizing_value = 0;
 last_percent = 0;
 
-%% Machine learning...
+% Machine learning...
 while h<85
     for i = 1:length(data)-2500               %Loops through all matches, and updates player's
         winner_Ktest = char(data(i).Winner);      % ELOs for each match
