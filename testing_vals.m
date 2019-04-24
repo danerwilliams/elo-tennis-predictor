@@ -3,7 +3,7 @@ function [percent_correct]=testing_vals(data, name2IDmap, playerELOs_kmap, k, pl
 number_correct = 0;
 total_number = 0;
 
-for i = (length(data)-2500):length(data)     %Loops through all matches, and counts for each player
+for i = (length(data)-83):length(data)     %Loops through all matches, and counts for each player
     
     winner_actual = char(data(i).Winner);      % how many matches they have played
     winnerID_actual = name2IDmap(winner_actual);
