@@ -15,11 +15,13 @@ for i = 2:150:(nt - 19)
     it(i),murrayELOs(i),'ro');
     xlabel('Time');
     ylabel('Big 4 ELO');
-    axis([0 22459 1200 2100])
+    axis([0 22459 1400 2100])
 
     grid on
     drawnow
-    
+    pause(0.005);
 
     
 end
+
+legend('Federer','Nadal','Djokovic','Murray');

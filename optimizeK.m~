@@ -89,11 +89,10 @@ while h<60
         h = h+5;
         last_percent = current_percent;
     end
-    percentVector1 = [percentVector1, current_percent];
+    percentVector1 = [
     
 end
 kVector = kVector1;
-percentVector = percentVector1;
 KValue = optimal_K;
 
 
