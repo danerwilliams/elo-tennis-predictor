@@ -172,7 +172,6 @@ function LoadButton_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-store = load('datadata.mat');
 
 plotK(handles)
 plotFederer(handles)

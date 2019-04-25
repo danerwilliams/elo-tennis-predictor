@@ -1,10 +1,10 @@
 %% Animate plot federer ELos
 
 function plotFederer(handles)
+load('datadata.mat');
 
 nt = 22495;
 it = 1:nt;
-figure()
 
 
 for i = 2:150:(nt - 19)
