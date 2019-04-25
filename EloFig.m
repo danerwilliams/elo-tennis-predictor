@@ -83,6 +83,8 @@ function PlayerOneEdit_Callback(hObject, eventdata, handles)
 % Hints: get(hObject,'String') returns contents of PlayerOneEdit as text
 %        str2double(get(hObject,'String')) returns contents of PlayerOneEdit as a double
 
+playerOne = handles.PlayerOneEdit.String;
+
 
 % --- Executes during object creation, after setting all properties.
 function PlayerOneEdit_CreateFcn(hObject, eventdata, handles)
@@ -105,6 +107,8 @@ function PlayerTwoEdit_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'String') returns contents of PlayerTwoEdit as text
 %        str2double(get(hObject,'String')) returns contents of PlayerTwoEdit as a double
+
+playerTwo = handles.PlayerTwoEdit.String;
 
 
 % --- Executes during object creation, after setting all properties.
@@ -129,6 +133,8 @@ function FirstOddsEdit_Callback(hObject, eventdata, handles)
 % Hints: get(hObject,'String') returns contents of FirstOddsEdit as text
 %        str2double(get(hObject,'String')) returns contents of FirstOddsEdit as a double
 
+playerOneOdds = str2double(handles.FirstOddsEdit.String);
+
 
 % --- Executes during object creation, after setting all properties.
 function FirstOddsEdit_CreateFcn(hObject, eventdata, handles)
@@ -151,6 +157,8 @@ function SecondOddsEdit_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'String') returns contents of SecondOddsEdit as text
 %        str2double(get(hObject,'String')) returns contents of SecondOddsEdit as a double
+
+playerTwoOdds = str2double(handles.SecondOddsEdit.String);
 
 
 % --- Executes during object creation, after setting all properties.
@@ -182,5 +190,25 @@ function DecisionButton_Callback(hObject, eventdata, handles)
 % hObject    handle to DecisionButton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+playerOne = handles.PlayerOneEdit.String;
+playerTwo = handles.PlayerTwoEdit.String;
+playerOneOdds = str2double(handles.FirstOddsEdit.String);
+playerTwoOdds = str2double(handles.SecondOddsEdit.String);
+
+    
+[edgePlayerOne, edgePlayerTwo,playerOneProbability,vegasPlayerOneProbability,playerTwoProbability,vegasPlayerTwoProbability] = compareOdds(playerOneOdds,playerTwoOdds,playerOne,playerTwo);
+
+newfs = [playerOneProbability,vegasPlayerOneProbability;playerTwoProbability,vegasPlayerTwoProbability];
+bar(handles.ComparisonAxes, newfs);
+set(gca,'xticklabel',{'Ours   Vegas', 'Ours   Vegas'});
+
+
+
+if edgePlayerOne > 0
+    handles.DecisionText.String = ['You should bet on ', playerOne];
+elseif edgePlayerOne < 0
+    handles.DecisionText.String = ['You should bet on ', playerTwo];
+end
+
 
 

@@ -1,5 +1,5 @@
-function [edgePlayerOne, edgePlayerTwo] = compareOdds(playerOneOdds,playerTwoOdds,playerOne,playerTwo,name2IDmap,playerELOs)
-
+function [edgePlayerOne, edgePlayerTwo,playerOneProbability,vegasPlayerOneProbability,playerTwoProbability,vegasPlayerTwoProbability] = compareOdds(playerOneOdds,playerTwoOdds,playerOne,playerTwo)
+load('datadata.mat');
 % ONLY WORKS IF PLAYERONE IS THE FAVORITE, ONLY MONEYLINE BETS
 
 
@@ -17,5 +17,5 @@ edgePlayerTwo = (playerTwoProbability - vegasPlayerTwoProbability);
 
 % Plot to compare odds
 
-y = [playerOneProbability, vegasPlayerOneProbability];
-bar(y);
+% y = [playerOneProbability, vegasPlayerOneProbability];
+% bar(y);
