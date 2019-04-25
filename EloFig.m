@@ -22,7 +22,7 @@ function varargout = EloFig(varargin)
 
 % Edit the above text to modify the response to help EloFig
 
-% Last Modified by GUIDE v2.5 24-Apr-2019 20:28:57
+% Last Modified by GUIDE v2.5 24-Apr-2019 23:35:40
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -200,7 +200,7 @@ playerTwoOdds = str2double(handles.SecondOddsEdit.String);
 
 newfs = [playerOneProbability,vegasPlayerOneProbability;playerTwoProbability,vegasPlayerTwoProbability];
 bar(handles.ComparisonAxes, newfs);
-set(gca,'xticklabel',{'Ours   Vegas', 'Ours   Vegas'});
+set(gca,'xticklabel',{'Ours     Vegas', 'Ours      Vegas'});
 
 
 
@@ -209,6 +209,3 @@ if edgePlayerOne > 0
 elseif edgePlayerOne < 0
     handles.DecisionText.String = ['You should bet on ', playerTwo];
 end
-
-
-
