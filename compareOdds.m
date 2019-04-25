@@ -15,4 +15,7 @@ vegasPlayerTwoProbability = (100 / (playerTwoOdds + 100)) * 100;
 edgePlayerOne = (playerOneProbability - vegasPlayerOneProbability);
 edgePlayerTwo = (playerTwoProbability - vegasPlayerTwoProbability);
 
+% Plot to compare odds
 
+y = [playerOneProbability, vegasPlayerOneProbability];
+bar(y);

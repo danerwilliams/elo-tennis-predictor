@@ -1,10 +1,14 @@
 %% Animate plot federer ELos
+
+function plotFederer(handles)
+
 nt = 22495;
 it = 1:nt;
 figure()
 
-for i = 1:150:(nt - 19)
-    plot(it(1:i),federerELOs(1:i),'b',...
+
+for i = 2:150:(nt - 19)
+    plot(handles.EloAxes, it(1:i),federerELOs(1:i),'b',...
     it(i),federerELOs(i),'ro',...
     it(1:i),nadalELOs(1:i),'g',...
     it(i),nadalELOs(i),'ro',...
@@ -14,10 +18,13 @@ for i = 1:150:(nt - 19)
     it(i),murrayELOs(i),'ro');
     xlabel('Time');
     ylabel('Big 4 ELO');
-    axis([0 22459 1200 2100])
+    axis([0 22459 1400 2100])
+
     grid on
     drawnow
-    legend('Federer','Nadal','Djokovic','Murray');
+    pause(0.005);
 
     
 end
+
+legend('Federer','Nadal','Djokovic','Murray');
