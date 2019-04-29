@@ -200,7 +200,8 @@ playerTwoOdds = str2double(handles.SecondOddsEdit.String);
 
 newfs = [playerOneProbability,vegasPlayerOneProbability;playerTwoProbability,vegasPlayerTwoProbability];
 bar(handles.ComparisonAxes, newfs);
-set(gca,'xticklabel',{'Ours     Vegas', 'Ours      Vegas'});
+%set(gca,'xticklabel',{'Ours      Vegas'});
+legend(handles.ComparisonAxes,'Ours','Vegas','Location','northeast');
 
 
 
