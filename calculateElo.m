@@ -8,8 +8,8 @@ function [newPlayerOneElo,newPlayerTwoElo] = calculateElo(playerOneID,playerTwoI
     playerOneElo = playerELOs(playerOneID,1);       %Gets the old ELOs of the players
     playerTwoElo = playerELOs(playerTwoID,1);
     
-    pWinPlayerOne = 1/(1 + 10^((playerOneElo - playerTwoElo)/400)); %Calculates win probabilities
-    pWinPlayerTwo = 1/(1 + 10^((playerTwoElo - playerOneElo)/400));
+    pWinPlayerOne = 1/(1 + 10^((-1)*(playerOneElo - playerTwoElo)/400)); %Calculates win probabilities
+    pWinPlayerTwo = 1/(1 + 10^((-1)*(playerTwoElo - playerOneElo)/400));
     
     
     playerOneMatches = playerMatches(playerOneID);      %gets how many matches in a players data set
