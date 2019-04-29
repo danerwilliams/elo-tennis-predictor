@@ -37,11 +37,11 @@ function [newPlayerOneElo,newPlayerTwoElo] = calculateElo(playerOneID,playerTwoI
     end
             
     
-      kPlayerOne = kMultiplier*k/(playerOneMatches + 5)^.4;
-      kPlayerTwo = k * (kMultiplier ^ -1)/(playerTwoMatches + 5)^.4;
-
-%kplayer one = k * MOV
-%kplayer two = k*MOV
+    kPlayerOne = kMultiplier*k/(playerOneMatches + 5)^.4;
+    kPlayerTwo = k * (kMultiplier ^ -1)/(playerTwoMatches + 5)^.4;
+      
+    %kplayer one = k * MOV
+    %kplayer two = k*MOV
 
     
     playerOneOutcome = 1;       %Winner is 1, loser is 0

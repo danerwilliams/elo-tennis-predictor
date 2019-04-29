@@ -12,7 +12,7 @@ load('datadatadata.mat');
 
 %plot(kVector(1:13),percentVector(1:13),'b',kVector(5),percentVector(5),'ro');
 
-for i = 1:13
+for i = 1:12
     plot(handles.Kaxes, kVector(1:i),percentVector(1:i),'b',kVector(i),percentVector(i),'k.');
     xlabel(handles.Kaxes,'K');
     ylabel(handles.Kaxes,'Percent Correct');

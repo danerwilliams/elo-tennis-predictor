@@ -1,7 +1,7 @@
 %% Animate plot federer ELos
 
 function plotFederer(handles)
-load('datadatadata.mat');
+load('datadata.mat');
 
 nt = 22495;
 it = 1:nt;
