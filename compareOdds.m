@@ -1,5 +1,5 @@
 function [edgePlayerOne, edgePlayerTwo,playerOneProbability,vegasPlayerOneProbability,playerTwoProbability,vegasPlayerTwoProbability] = compareOdds(playerOneOdds,playerTwoOdds,playerOne,playerTwo)
-load('datadata.mat');
+load('datadatadata.mat');
 % ONLY WORKS IF PLAYERONE IS THE FAVORITE, ONLY MONEYLINE BETS
 
 

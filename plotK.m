@@ -1,7 +1,7 @@
 %% Animate plot federer ELos
 
 function plotK(handles)
-load('datadata.mat');
+load('datadatadata.mat');
 
 
 
